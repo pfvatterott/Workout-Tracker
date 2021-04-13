@@ -19,7 +19,7 @@ router.post("/api/workouts", ({ body }, res) => {
 
 router.put("/api/workouts/:id", (req, res) => {
     console.log(req.body)
-    db.Workout.updateOne({ _id: req.params.id}, { $set: {"exercises": [req.body]}})
+    db.Workout.updateOne({ _id: req.params.id}, { $push: {"exercises": [req.body]}})
     .then(dbTransaction => {
       res.json(dbTransaction);
     })
