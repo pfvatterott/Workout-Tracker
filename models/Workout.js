@@ -41,7 +41,9 @@ const WorkoutSchema = new Schema({
 }
 );
 
+// Adding totalDuration dynamically
 WorkoutSchema.virtual("totalDuration").get(function () {
+  //reduce array of exercises to just duration
   return this.exercises.reduce((total, exercise) => {
     return total + exercise.duration;
   }, 0);
