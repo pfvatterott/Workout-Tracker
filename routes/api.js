@@ -40,7 +40,7 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.get("/api/workouts/range", (req, res) => {
-    db.Workout.find({}).sort({_id: -1}).limit(9)
+    db.Workout.find({}).sort({_id: -1}).limit(7)
       .then(dbTransaction => {
         res.json(dbTransaction);
       })
