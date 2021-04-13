@@ -49,12 +49,4 @@ router.get("/api/workouts/range", (req, res) => {
       });
 });
 
-db.Workout.aggregate([
-  {
-    $addFields: {
-      totalDuration: { $sum: "$duration" }
-    }
-  }
-])
-
 module.exports = router;
